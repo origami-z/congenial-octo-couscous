@@ -1,0 +1,49 @@
+/* body {
+  height: 100vh;
+  margin: 0;
+  padding: 8px;
+}
+
+#root,
+.custom-wrapper,
+.custom-layout {
+  height: 100%;
+} */
+
+.custom-layout {
+  /* height: 100%; */
+  --sp-layout-height: 90vh;
+}
+
+/* 
+Copied from
+https://github.com/microsoft/TypeScript-Website/blob/1ba2637f0b0685b37635fcaf050ae3ab7cb66a1a/packages/typescriptlang-org/src/templates/play.scss 
+*/
+#flash-bg {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 42;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+#flash-bg p {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  font-size: 1.5rem;
+
+  border-radius: 1em;
+  padding: 0.5em 1.5em;
+
+  color: white;
+  transition: opacity 0.1s ease-in-out;
+
+  /* help Safari with blurred text */
+  transform: translateZ(0);
+}
