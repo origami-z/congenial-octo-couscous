@@ -1,4 +1,5 @@
 import { SandpackState } from "@codesandbox/sandpack-react";
+import { defaultLightTheme } from "./themes/defaultLight";
 
 export const dependencies = {
   "@salt-ds/core": "latest",
@@ -8,8 +9,8 @@ export const dependencies = {
 };
 export const DEFAULT_FILES: SandpackState["files"] = {
   "/App.tsx": {
-    code: `import { Button, SaltProvider, StackLayout } from '@salt-ds/core';
-import { ThumbsUpIcon } from '@salt-ds/icons';
+    code: `import { Button, SaltProvider, StackLayout, FlexLayout } from '@salt-ds/core';
+import { ThumbsUpIcon, ThumbsDownIcon } from '@salt-ds/icons';
 import { List } from '@salt-ds/lab';
 import "./App.css";
 
@@ -30,19 +31,22 @@ const shortColorData = [
 export default function App(): JSX.Element {
   return (
     <StackLayout>
-      <List source={shortColorData} />
-      <Button>
-        <ThumbsUpIcon />
-      </Button>
+      <List source={shortColorData} selected={shortColorData[3]} />
+      <FlexLayout>
+        <Button variant="cta">
+          <ThumbsUpIcon />
+        </Button>
+        <Button>
+          <ThumbsDownIcon />
+        </Button>
+      </FlexLayout>
     </StackLayout>
   )
 }
 `,
   },
   "/App.css": {
-    code: `h1 {
-  color: red;
-}`,
+    code: `.custom-theme.salt-theme ` + defaultLightTheme,
   },
   "/public/index.html": {
     code: `<!DOCTYPE html>
@@ -81,11 +85,11 @@ import App from "./App";
 const root = createRoot(document.getElementById("root"));
 root.render(
 <StrictMode>
-<SaltProvider>
+<SaltProvider theme="custom-theme">
 <App />
 </SaltProvider>
 </StrictMode>
 );`,
-    hidden: true,
+    // hidden: true,
   },
 };
