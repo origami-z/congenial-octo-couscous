@@ -74,6 +74,7 @@ export const CustomSandpack = ({ themeObj }: any) => {
     },
     "/theme.json": {
       code: JSON.stringify(themeObj, null, 2),
+      // active: true,
     },
   };
   return (

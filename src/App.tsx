@@ -8,7 +8,7 @@ import "./App.css";
 const defaultTheme = {
   interact: {
     cta: { background: "#D65513" },
-    background: { active: "#a4d5f4" },
+    background: { active: "#f3bdee" },
   },
 };
 
